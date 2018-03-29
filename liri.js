@@ -26,23 +26,22 @@ if (process.argv[2] == "twitter-feed") {
 
 
 //spotify-this-song
-
-/* fs.readFile("random.txt", "utf8", function(err, data) {
+fs.readFile("random.txt", "utf8", function(err, data) {
   if (err) {
-    return console.log(err);
+      return console.log(err);
   }
-  var output = data.split(","); */
+  var random = data.split(",");
 
-
-if (process.argv[2] == "spotify-this-song") {
-	spotify.search({ type: 'track', query: "Way Down We Go"}, function(err, data) {
+  if (process.argv[2] == random[0]) {
+	spotify.search({ type: 'track', query: random[1]}, function(err, data) {
 	    if (err) {
           console.log(err);
         }
         var mySpotify = ("\nArtist: " + data.tracks.items[0].album.artists[0].name + "\nThe Song's Name: " + data.tracks.items[0].name + "\nThe Preview Link: " + data.tracks.items[0].preview_url + "\nThe Album this song is from: " + data.tracks.items[0].album.name + "\n");
 		console.log(mySpotify); 	  
   });
-}
+ }
+});
 
 //movie-this
 if (process.argv[2] == "movie-this") {
